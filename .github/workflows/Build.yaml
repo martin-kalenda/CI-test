@@ -13,3 +13,12 @@ jobs:
         shell: bash
         run: |
           echo ${{ github.run_id }}
+
+  job2:
+    name: job2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Second first step
+        shell: bash
+        run: |
+          echo ${{ github.run_id }}
