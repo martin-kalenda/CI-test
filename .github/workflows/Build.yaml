@@ -25,4 +25,4 @@ jobs:
         shell: bash
         run: |
           echo ${{ github.run_id }}
-          echo "${{ needs.job1.appName }}"
+          echo "${{ needs.job1.outputs.appName }}"
