@@ -9,9 +9,10 @@ jobs:
     name: job
     runs-on: ubuntu-latest
     outputs:
-      appName: ${{ steps.set-output.outputs.appName }}
+      appName: ${{ steps.first.outputs.appName }}
     steps:
       - name: First step
+        id: first
         shell: bash
         run: |
           echo ${{ github.run_id }}
