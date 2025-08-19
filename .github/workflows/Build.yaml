@@ -9,7 +9,7 @@ jobs:
     name: job
     runs-on: ubuntu-latest
     outputs:
-      appName: ${{ github.env.APP_NAME }}
+      appName: ${{ steps.first.outputs.appName }}
     steps:
       - name: First step
         id: first
@@ -17,6 +17,7 @@ jobs:
         run: |
           echo ${{ github.run_id }}
           echo "APP_NAME=TEST" >> $GITHUB_ENV
+          echo "appName=TEST" >> $GITHUB_OUTPUT
 
   job2:
     name: job2
@@ -27,6 +28,6 @@ jobs:
         shell: bash
         run: |
           echo ${{ github.run_id }}
-          echo "${appName}"
+          echo "${APP_NAME}"
         env:
-          appName: ${{ needs.job1.outputs.appName }}"
+          APP_NAME: ${{ needs.job1.outputs.appName }}"
