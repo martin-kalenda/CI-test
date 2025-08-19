@@ -27,6 +27,6 @@ jobs:
         shell: bash
         run: |
           echo ${{ github.run_id }}
-          echo "${{ appName }}"
+          echo "${appName}"
         env:
           appName: ${{ needs.job1.outputs.appName }}"
