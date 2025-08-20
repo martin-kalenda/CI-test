@@ -16,9 +16,9 @@ jobs:
         shell: bash
         run: |
           echo ${{ github.run_id }}
-          echo "APP_NAME=TEST" >> $GITHUB_ENV
-          echo "${APP_NAME}"
-          echo "appName=${{ env.APP_NAME }}" >> $GITHUB_OUTPUT
+          APP_NAME="TEST"
+          echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
+          echo "appName=${APP_NAME}" >> $GITHUB_OUTPUT
 
   job2:
     name: job2
@@ -31,4 +31,4 @@ jobs:
           echo ${{ github.run_id }}
           echo "${{ env.APP_NAME }}"
         env:
-          APP_NAME: ${{ needs.job1.outputs.appName }}"
+          APP_NAME: ${{ needs.job1.outputs.appName }}
