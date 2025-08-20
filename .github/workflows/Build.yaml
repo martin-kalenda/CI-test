@@ -17,8 +17,8 @@ jobs:
         run: |
           echo ${{ github.run_id }}
           echo "APP_NAME=TEST" >> $GITHUB_ENV
-          echo "${APP_NAME}"
-          echo "appName=${APP_NAME}" >> $GITHUB_OUTPUT
+          echo "${{ env.APP_NAME }}"
+          echo "appName=${{ env.APP_NAME }}" >> $GITHUB_OUTPUT
 
   job2:
     name: job2
