@@ -20,6 +20,11 @@ jobs:
           echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
           echo "appName=${APP_NAME}" >> $GITHUB_OUTPUT
 
+      - name: Second step
+        shell: bash
+        run: |
+          echo ${APP_NAME}
+
   job2:
     name: job2
     runs-on: ubuntu-latest
