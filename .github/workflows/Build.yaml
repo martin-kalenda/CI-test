@@ -36,7 +36,7 @@ jobs:
           echo ${{ github.run_id }}
           echo "${{ env.APP_NAME }}"
           if [[ "${{ env.APP_NAME }}" == *-task ]]; then
-            echo "${{ env.APP_NAME%-task }}_task"
+            echo "${APP_NAME%-task}_task"
           fi
         env:
           APP_NAME: ${{ needs.job1.outputs.appName }}
