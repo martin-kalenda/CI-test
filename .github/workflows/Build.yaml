@@ -16,9 +16,9 @@ jobs:
         shell: bash
         run: |
           echo ${{ github.run_id }}
-          APP_NAME="TEST"
+          APP_NAME="TEST-task"
           echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
-          echo "appName=${APP_NAME}" >> $GITHUB_OUTPUT
+          echo "appName=${{APP_NAME}" >> $GITHUB_OUTPUT
 
       - name: Second step
         shell: bash
@@ -34,6 +34,9 @@ jobs:
         shell: bash
         run: |
           echo ${{ github.run_id }}
-          echo "${APP_NAME}"
+          echo "${{ env.APP_NAME }}"
+          if [[ "${{ env.APP_NAME }}" == *-task ]]; then
+            APP_NAME="${{ env.APP_NAME%-task }}_task"
+          fi
         env:
           APP_NAME: ${{ needs.job1.outputs.appName }}
