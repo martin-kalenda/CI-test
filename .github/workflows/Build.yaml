@@ -17,8 +17,8 @@ jobs:
         run: |
           echo ${{ github.run_id }}
           APP_NAME="TEST-task"
-          echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
-          echo "appName=${APP_NAME}" >> $GITHUB_OUTPUT
+          echo "APP_NAME=             ${APP_NAME}       " >> $GITHUB_ENV
+          echo "appName=    ${APP_NAME}   " | tr -d '[:blank:] >> $GITHUB_OUTPUT
 
       - name: Second step
         shell: bash
